@@ -130,11 +130,13 @@ export default BaseStore.extend({
   }),
 
   _secureCookies: computed(function() {
-    if (this.get('_fastboot.isFastBoot')) {
-      return this.get('_fastboot.request.protocol') === 'https';
-    }
-
-    return window.location.protocol === 'https:';
+    // TODO Remove once demandware can handel https cookie
+    // if (this.get('_fastboot.isFastBoot')) {
+    //   return this.get('_fastboot.request.protocol') === 'https';
+    // }
+    //
+    // return window.location.protocol === 'https:';
+    return false;
   }).volatile(),
 
   _isPageVisible: computed(function() {
